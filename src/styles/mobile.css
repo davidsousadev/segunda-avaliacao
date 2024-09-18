@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section#destaques,
+section#publicidade {
+    width: 100%;
+}
+
+section#noticias {
+    width: 100%;
+}
+
+    nav ul {
+        flex-direction: column;
+    }
+}

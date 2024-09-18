@@ -64,7 +64,7 @@ return lista_noticias;
 }
 
 conteudo.innerHTML += mostrar_noticias(noticias, 4, false);
-destaques.innerHTML += mostrar_noticias(noticias, 4, true);
+destaques.innerHTML += mostrar_noticias(noticias, 6, true);
 
 // Mudar o tamanho texto da página
 var botaoAumentarTamanhoTexto = document.getElementById("aumentarTamanhoTexto");
@@ -93,19 +93,56 @@ botaoDiminuirTamanhoTexto.addEventListener("click", diminuirTamanhoTexto);
 // Mudar Cor
 
 var botao = document.getElementById("mudarCor");
-
 function mudarCor() {
     
     if (document.body.style.backgroundColor === 'black') {
         document.body.style.backgroundColor = 'white';
+        conteudo.style.backgroundColor = 'white';
+        destaques.style.backgroundColor = 'white';
+        publicidade.style.backgroundColor = 'white';
         document.body.style.color = 'black';
         botao.innerHTML = "Dark";
     }
     else {
         document.body.style.backgroundColor = 'black';
         document.body.style.color = 'white';
+        conteudo.style.backgroundColor = 'black';
+        destaques.style.backgroundColor = 'black';
+        publicidade.style.backgroundColor = 'black';
+        
         botao.innerHTML = "Ligth";
     }
 }
 botao.addEventListener("click", mudarCor);
+
+function searchNews() {
+    const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+    const articles = document.querySelectorAll('article p');
+    
+    articles.forEach(article => {
+        if (article.textContent.toLowerCase().includes(searchTerm)) {
+            article.style.display = 'block';
+        } else {
+            article.style.display = 'none';
+        }
+    });
+}
+
+const images = document.querySelectorAll('.gallery-image');
+const modal = document.getElementById('modal');
+
+images.forEach(image => {
+    image.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        const img = document.createElement('img');
+        img.src = image.src;
+        modal.innerHTML = '';
+        modal.appendChild(img);
+    });
+});
+
+modal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
 
