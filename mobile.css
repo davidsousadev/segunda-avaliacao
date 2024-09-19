@@ -3,7 +3,9 @@
         flex-direction: column;
         align-items: center;
     }
-
+    header span#clima{
+        display: none;
+    }
     section#destaques,
 section#publicidade {
     width: 100%;
@@ -15,5 +17,20 @@ section#noticias {
 
     nav ul {
         flex-direction: column;
+    }
+    section#contatos .social{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    section#contatos article{
+        padding-left: -50px;
+        margin-left: -50px;
+        
+    }
+    section#contatos h2{
+        padding-left: 0px;
+        margin-left: -30px;
     }
 }
